@@ -39,18 +39,25 @@ const storeSearch = document.getElementById('storeSearch');
 
 const locationIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
 
+function getStores() {
+  const rd = rdGetStores && rdGetStores();
+  return rd || stores;
+}
+
 function createStoreCard(store) {
-  const mapsUrl = `https://yandex.ru/maps/?text=${encodeURIComponent(store.address + ', Омск')}`;
+  const address = store.address + ', Омск';
+  const mapsUrl = `https://yandex.ru/maps/?text=${encodeURIComponent(address)}`;
   const gisUrl = `https://2gis.ru/omsk/search/${encodeURIComponent(store.address)}`;
   return `
     <article class="store-card reveal">
       <div class="store-card__badge">
         <span class="pulse-dot pulse-dot--sm"></span>
-        24/7
+        ${store.schedule || '24/7'}
       </div>
       <div class="store-card__info">
         <h3>Магазин №${store.id}</h3>
         <p>${locationIcon} ${store.address}</p>
+        ${store.phone ? `<p style="margin-top:4px;font-weight:500">📞 ${store.phone}</p>` : ''}
         <div class="store-card__routes">
           <a href="${mapsUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Яндекс Карты</a>
           <a href="${gisUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">2ГИС</a>
@@ -61,7 +68,8 @@ function createStoreCard(store) {
 }
 
 function renderStores(filterText = '') {
-  const filtered = stores.filter(s => {
+  const storeList = getStores();
+  const filtered = storeList.filter(s => {
     const q = filterText.toLowerCase();
     return s.address.toLowerCase().includes(q);
   });
@@ -74,22 +82,45 @@ function renderStores(filterText = '') {
 if (storeSearch) storeSearch.addEventListener('input', (e) => renderStores(e.target.value));
 renderStores();
 
+if (typeof rdIsConfigured === 'function' && rdIsConfigured()) {
+  window.addEventListener('rocketdata:loaded', () => renderStores(storeSearch ? storeSearch.value : ''));
+}
+
 // ==================== RENDER REVIEWS ====================
 const reviewsGrid = document.getElementById('reviewsGrid');
-if (reviewsGrid) {
-  reviewsGrid.innerHTML = reviews.map(r => `
+
+function renderReviews(reviewList) {
+  const revs = reviewList || reviews;
+  if (!reviewsGrid) return;
+  reviewsGrid.innerHTML = revs.map(r => `
     <div class="review-card reveal">
       <div class="review-card__header">
-        <div class="review-card__avatar">${r.name[0]}</div>
+        <div class="review-card__avatar">${(r.name || 'К')[0]}</div>
         <div>
-          <div class="review-card__name">${r.name}</div>
-          <div class="review-card__date">${r.date}</div>
+          <div class="review-card__name">${r.name || 'Клиент'}</div>
+          <div class="review-card__date">${r.date || ''}</div>
         </div>
       </div>
-      <div class="review-card__stars">${'★'.repeat(r.stars)}${r.stars < 5 ? '☆'.repeat(5 - r.stars) : ''}</div>
-      <p class="review-card__text">${r.text}</p>
+      <div class="review-card__stars">${'★'.repeat(r.stars || 5)}${(r.stars || 5) < 5 ? '☆'.repeat(5 - (r.stars || 5)) : ''}</div>
+      <p class="review-card__text">${r.text || ''}</p>
     </div>
   `).join('');
+}
+
+renderReviews();
+
+if (typeof rdIsConfigured === 'function' && rdIsConfigured()) {
+  window.addEventListener('rocketdata:loaded', () => {
+    const rd = rdGetReviews && rdGetReviews();
+    if (rd) renderReviews(rd);
+    const rating = rdGetRating && rdGetRating();
+    if (rating) {
+      const scoreEl = document.querySelector('.reviews__score-num');
+      const countEl = document.querySelector('.reviews__score-count');
+      if (scoreEl) scoreEl.textContent = rating.score;
+      if (countEl) countEl.textContent = `на основе ${rating.count} отзывов`;
+    }
+  });
 }
 
 // ==================== NAV SCROLL ====================
@@ -273,5 +304,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entries[0].isIntersecting) { animateCounters(); trustObserver.disconnect(); }
     }, { threshold: 0.3 });
     trustObserver.observe(trustBar);
+  }
+
+  if (typeof rdIsConfigured === 'function' && rdIsConfigured()) {
+    window.addEventListener('rocketdata:loaded', () => {
+      const rating = rdGetRating && rdGetRating();
+      if (rating) {
+        const heroRating = document.querySelector('.hero__rating');
+        const heroReviews = document.querySelector('.hero__reviews');
+        const heroStars = document.querySelector('.hero__stars');
+        if (heroRating) heroRating.textContent = rating.score;
+        if (heroReviews) heroReviews.textContent = `${rating.count}+ отзывов`;
+        if (heroStars) {
+          const starCount = Math.round(rating.score);
+          heroStars.innerHTML = '★'.repeat(starCount) + (starCount < 5 ? '☆'.repeat(5 - starCount) : '');
+        }
+      }
+    });
   }
 });
