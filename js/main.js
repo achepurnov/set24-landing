@@ -1,24 +1,24 @@
 // ==================== STORE DATA ====================
 const stores = [
-  { id: 1, address: 'ул. Бударина, 3е', metro: 'Центральный', walk: '2 мин пешком' },
-  { id: 2, address: 'ул. Конева, 8', metro: 'Ленинский', walk: '3 мин пешком' },
-  { id: 3, address: 'Волочаевская ул., 19 к4', metro: 'Октябрьский', walk: '4 мин пешком' },
-  { id: 4, address: 'ул. Красный Путь, 143 к5', metro: 'Советский', walk: '2 мин' },
-  { id: 5, address: 'ул. Красный Путь, 101 к1', metro: 'Советский', walk: '5 мин пешком' },
-  { id: 6, address: 'Взлётная ул., 13', metro: 'Кировский', walk: '3 мин' },
-  { id: 7, address: 'ул. Димитрова, 69', metro: 'Ленинский', walk: '4 мин пешком' },
-  { id: 8, address: 'ЖК Волна, Архитекторов б-р, 1в', metro: 'Кировский', walk: '2 мин пешком' },
-  { id: 9, address: 'Архитекторов б-р, 13', metro: 'Кировский', walk: '3 мин' },
-  { id: 10, address: 'ЖК Садовый, ул. Ватутина, 25а', metro: 'Советский', walk: '4 мин пешком' },
-  { id: 11, address: 'б-р Кузьмина, 27', metro: 'Кировский', walk: '1 мин пешком' },
-  { id: 12, address: 'ул. Перелёта, 18', metro: 'Кировский', walk: '3 мин' },
-  { id: 13, address: 'ЖК Уютный, ул. Игоря Мишина, 4', metro: 'Октябрьский', walk: '5 мин пешком' },
-  { id: 14, address: 'ул. Молодова, 6/1', metro: 'Октябрьский', walk: '2 мин' },
-  { id: 15, address: '6-й Амурский проезд, 14', metro: 'Центральный', walk: '4 мин пешком' },
-  { id: 16, address: '2-я Поселковая ул., 24', metro: 'Ленинский', walk: '3 мин пешком' },
-  { id: 17, address: 'ул. Завертяева, 23 к8', metro: 'Советский', walk: '2 мин' },
-  { id: 18, address: 'ул. Бархатовой, 2а', metro: 'Советский', walk: '4 мин пешком' },
-  { id: 19, address: 'Пригородная ул., 23', metro: 'Ленинский', walk: '5 мин пешком' },
+  { id: 1, address: 'ул. Бударина, 3е', district: 'Центральный', walk: '2 мин пешком' },
+  { id: 2, address: 'ул. Конева, 8', district: 'Ленинский', walk: '3 мин пешком' },
+  { id: 3, address: 'Волочаевская ул., 19 к4', district: 'Октябрьский', walk: '4 мин пешком' },
+  { id: 4, address: 'ул. Красный Путь, 143 к5', district: 'Советский', walk: '2 мин' },
+  { id: 5, address: 'ул. Красный Путь, 101 к1', district: 'Советский', walk: '5 мин пешком' },
+  { id: 6, address: 'Взлётная ул., 13', district: 'Кировский', walk: '3 мин' },
+  { id: 7, address: 'ул. Димитрова, 69', district: 'Ленинский', walk: '4 мин пешком' },
+  { id: 8, address: 'ЖК Волна, Архитекторов б-р, 1в', district: 'Кировский', walk: '2 мин пешком' },
+  { id: 9, address: 'Архитекторов б-р, 13', district: 'Кировский', walk: '3 мин' },
+  { id: 10, address: 'ЖК Садовый, ул. Ватутина, 25а', district: 'Советский', walk: '4 мин пешком' },
+  { id: 11, address: 'б-р Кузьмина, 27', district: 'Кировский', walk: '1 мин пешком' },
+  { id: 12, address: 'ул. Перелёта, 18', district: 'Кировский', walk: '3 мин' },
+  { id: 13, address: 'ЖК Уютный, ул. Игоря Мишина, 4', district: 'Октябрьский', walk: '5 мин пешком' },
+  { id: 14, address: 'ул. Молодова, 6/1', district: 'Октябрьский', walk: '2 мин' },
+  { id: 15, address: '6-й Амурский проезд, 14', district: 'Центральный', walk: '4 мин пешком' },
+  { id: 16, address: '2-я Поселковая ул., 24', district: 'Ленинский', walk: '3 мин пешком' },
+  { id: 17, address: 'ул. Завертяева, 23 к8', district: 'Советский', walk: '2 мин' },
+  { id: 18, address: 'ул. Бархатовой, 2а', district: 'Советский', walk: '4 мин пешком' },
+  { id: 19, address: 'Пригородная ул., 23', district: 'Ленинский', walk: '5 мин пешком' },
 ];
 
 // ==================== REVIEW DATA ====================
@@ -52,7 +52,7 @@ function createStoreCard(store) {
       <div class="store-card__info">
         <h3>Магазин №${store.id}</h3>
         <p>${locationIcon} ${store.address}</p>
-        <p>${metroIcon} м. ${store.metro}, ${store.walk}</p>
+        <p>${metroIcon} ${store.district} р-н, ${store.walk}</p>
         <a href="${yandexUrl}" target="_blank" rel="noopener" class="store-card__route" onclick="event.stopPropagation()">
           ${arrowIcon} Проложить маршрут
         </a>
@@ -64,7 +64,7 @@ function createStoreCard(store) {
 function renderStores(filterText = '') {
   const filtered = stores.filter(s => {
     const q = filterText.toLowerCase();
-    return s.address.toLowerCase().includes(q) || s.metro.toLowerCase().includes(q);
+    return s.address.toLowerCase().includes(q) || s.district.toLowerCase().includes(q);
   });
   storeGrid.innerHTML = filtered.map(createStoreCard).join('');
   storeCount.textContent = filtered.length;
