@@ -198,28 +198,6 @@ document.querySelectorAll('.faq__question').forEach(btn => {
   });
 });
 
-// ==================== CALCULATOR ====================
-const calcRange = document.getElementById('calcRange');
-const calcValue = document.getElementById('calcValue');
-const calcDelivery = document.getElementById('calcDelivery');
-const calcStore = document.getElementById('calcStore');
-const calcSavings = document.getElementById('calcSavings');
-
-function updateCalculator(val) {
-  const amount = +val;
-  const deliveryMarkup = Math.round(amount * 1.5);
-  const savings = deliveryMarkup - amount;
-  calcValue.textContent = amount.toLocaleString('ru-RU');
-  calcDelivery.textContent = deliveryMarkup.toLocaleString('ru-RU') + ' ₽';
-  calcStore.textContent = amount.toLocaleString('ru-RU') + ' ₽';
-  calcSavings.textContent = savings.toLocaleString('ru-RU') + ' ₽';
-}
-
-if (calcRange) {
-  calcRange.addEventListener('input', (e) => updateCalculator(e.target.value));
-  updateCalculator(calcRange.value);
-}
-
 // ==================== LIVE COUNTER ====================
 const liveCounter = document.getElementById('liveCounter');
 if (liveCounter) {
