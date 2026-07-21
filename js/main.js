@@ -1,34 +1,34 @@
 // ==================== STORE DATA ====================
 const stores = [
-  { id: 1, address: 'ул. Бударина, 3е', district: 'Центральный', walk: '2 мин пешком' },
-  { id: 2, address: 'ул. Конева, 8', district: 'Ленинский', walk: '3 мин пешком' },
-  { id: 3, address: 'Волочаевская ул., 19 к4', district: 'Октябрьский', walk: '4 мин пешком' },
-  { id: 4, address: 'ул. Красный Путь, 143 к5', district: 'Советский', walk: '2 мин' },
-  { id: 5, address: 'ул. Красный Путь, 101 к1', district: 'Советский', walk: '5 мин пешком' },
-  { id: 6, address: 'Взлётная ул., 13', district: 'Кировский', walk: '3 мин' },
-  { id: 7, address: 'ул. Димитрова, 69', district: 'Ленинский', walk: '4 мин пешком' },
-  { id: 8, address: 'ЖК Волна, Архитекторов б-р, 1в', district: 'Кировский', walk: '2 мин пешком' },
-  { id: 9, address: 'Архитекторов б-р, 13', district: 'Кировский', walk: '3 мин' },
-  { id: 10, address: 'ЖК Садовый, ул. Ватутина, 25а', district: 'Советский', walk: '4 мин пешком' },
-  { id: 11, address: 'б-р Кузьмина, 27', district: 'Кировский', walk: '1 мин пешком' },
-  { id: 12, address: 'ул. Перелёта, 18', district: 'Кировский', walk: '3 мин' },
-  { id: 13, address: 'ЖК Уютный, ул. Игоря Мишина, 4', district: 'Октябрьский', walk: '5 мин пешком' },
-  { id: 14, address: 'ул. Молодова, 6/1', district: 'Октябрьский', walk: '2 мин' },
-  { id: 15, address: '6-й Амурский проезд, 14', district: 'Центральный', walk: '4 мин пешком' },
-  { id: 16, address: '2-я Поселковая ул., 24', district: 'Ленинский', walk: '3 мин пешком' },
-  { id: 17, address: 'ул. Завертяева, 23 к8', district: 'Советский', walk: '2 мин' },
-  { id: 18, address: 'ул. Бархатовой, 2а', district: 'Советский', walk: '4 мин пешком' },
-  { id: 19, address: 'Пригородная ул., 23', district: 'Ленинский', walk: '5 мин пешком' },
+  { id: 1, address: 'ул. Бударина, 3е' },
+  { id: 2, address: 'ул. Конева, 8' },
+  { id: 3, address: 'Волочаевская ул., 19 к4' },
+  { id: 4, address: 'ул. Красный Путь, 143 к5' },
+  { id: 5, address: 'ул. Красный Путь, 101 к1' },
+  { id: 6, address: 'Взлётная ул., 13' },
+  { id: 7, address: 'ул. Димитрова, 69' },
+  { id: 8, address: 'ЖК Волна, Архитекторов б-р, 1в' },
+  { id: 9, address: 'Архитекторов б-р, 13' },
+  { id: 10, address: 'ЖК Садовый, ул. Ватутина, 25а' },
+  { id: 11, address: 'б-р Кузьмина, 27' },
+  { id: 12, address: 'ул. Перелёта, 18' },
+  { id: 13, address: 'ЖК Уютный, ул. Игоря Мишина, 4' },
+  { id: 14, address: 'ул. Молодова, 6/1' },
+  { id: 15, address: '6-й Амурский проезд, 14' },
+  { id: 16, address: '2-я Поселковая ул., 24' },
+  { id: 17, address: 'ул. Завертяева, 23 к8' },
+  { id: 18, address: 'ул. Бархатовой, 2а' },
+  { id: 19, address: 'Пригородная ул., 23' },
 ];
 
 // ==================== REVIEW DATA ====================
 const reviews = [
-  { name: 'Анна М.', date: '2 дня назад', stars: 5, text: 'Спасают в любое время! Захотелось мороженого в 2 часа ночи — зашла и купила. Магазин чистый, всё свежее. Рекомендую!' },
-  { name: 'Дмитрий К.', date: 'неделю назад', stars: 5, text: 'Живу рядом с магазином на Тверской. Очень удобно, когда срочно нужно что-то купить, а все супермаркеты уже закрыты. Цены адекватные.' },
-  { name: 'Елена В.', date: '2 недели назад', stars: 5, text: 'Выпечка просто бомба! Круассаны утром — свежайшие. Приятно, что есть скидка 20% ночью. Часто забегаю после работы.' },
-  { name: 'Сергей П.', date: '3 недели назад', stars: 4, text: 'Хороший ассортимент для магазина у дома. Есть всё самое нужное. Иногда не хватает некоторых позиций, но в целом — отлично.' },
-  { name: 'Мария Т.', date: 'месяц назад', stars: 5, text: 'Пользуюсь картой лояльности уже полгода. Кэшбек реально работает! И кофе бесплатный каждый 3-й — приятный бонус.' },
-  { name: 'Алексей Р.', date: 'месяц назад', stars: 5, text: 'Дешевле, чем заказывать доставку. Посчитал — в месяц экономлю около 5-7 тысяч. И не надо ждать курьера по 40 минут.' },
+  { name: 'Анна М.', date: '2 дня назад', stars: 5, text: 'Спасают в любое время! Захотелось мороженого в 2 часа ночи — зашла и купила. Магазин на Бударина чистый, всё свежее. Очень удобно!' },
+  { name: 'Дмитрий К.', date: 'неделю назад', stars: 5, text: 'Живу на Левобережье, магазин на Конева в двух шагах. Очень удобно, когда срочно нужно что-то купить, а все супермаркеты уже закрыты. Цены радуют.' },
+  { name: 'Елена В.', date: '2 недели назад', stars: 5, text: 'Выпечка просто бомба! Круассаны утром — свежайшие. Приятно, что есть скидка 20% ночью. Часто забегаю после работы на Красный Путь.' },
+  { name: 'Сергей П.', date: '3 недели назад', stars: 4, text: 'Хороший ассортимент для магазина у дома. Есть всё самое нужное. Иногда не хватает некоторых позиций, но в целом — отлично. Удобно что 24/7.' },
+  { name: 'Мария Т.', date: 'месяц назад', stars: 5, text: 'Пользуюсь картой лояльности уже полгода. Кэшбек реально работает! И кофе бесплатный каждый 3-й — приятный бонус. Советую всем омичам!' },
+  { name: 'Алексей Р.', date: 'месяц назад', stars: 5, text: 'Дешевле, чем заказывать доставку. Посчитал — в месяц экономлю около 5-7 тысяч. Не надо ждать курьера по 40 минут. Вышел и купил.' },
 ];
 
 // ==================== RENDER STORES ====================
@@ -38,11 +38,10 @@ const storeEmpty = document.getElementById('storeEmpty');
 const storeSearch = document.getElementById('storeSearch');
 
 const locationIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
-const metroIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>';
-const arrowIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
 
 function createStoreCard(store) {
-  const yandexUrl = `https://yandex.ru/maps/?text=${encodeURIComponent(store.address)}`;
+  const mapsUrl = `https://yandex.ru/maps/?text=${encodeURIComponent(store.address + ', Омск')}`;
+  const gisUrl = `https://2gis.ru/omsk/search/${encodeURIComponent(store.address)}`;
   return `
     <article class="store-card reveal">
       <div class="store-card__badge">
@@ -52,10 +51,10 @@ function createStoreCard(store) {
       <div class="store-card__info">
         <h3>Магазин №${store.id}</h3>
         <p>${locationIcon} ${store.address}</p>
-        <p>${metroIcon} ${store.district} р-н, ${store.walk}</p>
-        <a href="${yandexUrl}" target="_blank" rel="noopener" class="store-card__route" onclick="event.stopPropagation()">
-          ${arrowIcon} Проложить маршрут
-        </a>
+        <div class="store-card__routes">
+          <a href="${mapsUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Яндекс Карты</a>
+          <a href="${gisUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">2ГИС</a>
+        </div>
       </div>
     </article>
   `;
@@ -64,7 +63,7 @@ function createStoreCard(store) {
 function renderStores(filterText = '') {
   const filtered = stores.filter(s => {
     const q = filterText.toLowerCase();
-    return s.address.toLowerCase().includes(q) || s.district.toLowerCase().includes(q);
+    return s.address.toLowerCase().includes(q);
   });
   storeGrid.innerHTML = filtered.map(createStoreCard).join('');
   storeCount.textContent = filtered.length;

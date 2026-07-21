@@ -657,6 +657,14 @@ input { font-family: inherit; outline: none; }
 .store-card__route { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--blue-500); margin-top: 8px; transition: color var(--transition); }
 .store-card__route:hover { color: var(--blue-700); }
 
+.store-card__routes { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.store-card__routes a {
+  font-size: 13px; font-weight: 600; color: var(--blue-500);
+  padding: 6px 14px; border: 1px solid var(--blue-200);
+  border-radius: 100px; transition: all var(--transition);
+}
+.store-card__routes a:hover { background: var(--blue-50); border-color: var(--blue-400); color: var(--blue-700); }
+
 .stores__empty { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 60px 20px; color: var(--slate-400); }
 .stores__empty p { font-size: 18px; font-weight: 600; color: var(--slate-500); }
 .stores__empty span { font-size: 14px; }
