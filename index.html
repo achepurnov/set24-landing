@@ -3,35 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сеть 24 — Круглосуточные магазины у дома</title>
-  <meta name="description" content="Сеть круглосуточных магазинов «Сеть 24». Продукты и товары в шаговой доступности. Работаем 24/7.">
+  <title>Сеть 24 — Круглосуточные магазины у дома | Всегда рядом, всегда открыты</title>
+  <meta name="description" content="Сеть 24 — 19 круглосуточных магазинов у дома. Свежие продукты, честные цены, 5 минут пешком. ★ 4.9 на основе 2 500+ отзывов.">
+  <meta property="og:title" content="Сеть 24 — Круглосуточные магазины у дома">
+  <meta property="og:description" content="19 магазинов 24/7 в шаговой доступности. Свежие продукты, честные цены, скидки каждый день.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://set24.tilda.ws">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏪</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GroceryStore",
+    "name": "Сеть 24",
+    "description": "Круглосуточные магазины у дома",
+    "openingHours": "Mo-Su 00:00-23:59",
+    "telephone": "+78000000000",
+    "url": "https://set24.tilda.ws",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "2534"
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <nav class="nav">
+  <div class="promo-bar" id="promoBar">
+    <div class="promo-bar__inner container">
+      <span class="promo-bar__text">
+        <span class="promo-bar__icon">🎉</span>
+        <strong>Скидка 15%</strong> на первый заказ при предъявлении этой страницы на кассе
+        <span class="promo-bar__icon">🎉</span>
+      </span>
+      <span class="promo-bar__timer">Действует <span id="promoTimer">сегодня</span></span>
+    </div>
+  </div>
+
+  <nav class="nav" id="nav">
     <div class="nav__inner container">
       <a href="#" class="nav__logo">
         <span class="nav__logo-icon">24</span>
         <span class="nav__logo-text">Сеть<span class="nav__logo-accent">24</span></span>
       </a>
       <div class="nav__links">
+        <a href="#products" class="nav__link">Товары</a>
+        <a href="#promos" class="nav__link">Акции</a>
         <a href="#stores" class="nav__link">Магазины</a>
-        <a href="#about" class="nav__link">О сети</a>
-        <a href="#contacts" class="nav__link">Контакты</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#faq" class="nav__link">FAQ</a>
       </div>
-      <a href="tel:88000000000" class="nav__phone">8 (800) 000-00-00</a>
+      <a href="tel:88000000000" class="nav__phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        8 (800) 000-00-00
+      </a>
       <button class="nav__burger" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero__bg">
       <div class="hero__gradient"></div>
       <div class="hero__grid"></div>
@@ -46,16 +84,29 @@
           Работаем 24/7 без выходных
         </div>
         <h1 class="hero__title animate-in">
-          Сеть <span class="text-gradient">24</span> —<br>ваш круглосуточный<br>магазин у дома
+          Захотел перекусить<br>в <span class="text-gradient">3 часа ночи?</span><br>Мы открыты.
         </h1>
         <p class="hero__subtitle animate-in">
-          Всё самое необходимое в шаговой доступности.<br>Без перерывов, обедов и выходных.
+          Всё самое необходимое — в любое время суток. Никаких «закрыто на обед», никаких «приходите завтра». 19 магазинов в Москве.
         </p>
+        <div class="hero__trust animate-in">
+          <div class="hero__stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            <span class="hero__rating">4.9</span>
+            <span class="hero__reviews">2 500+ отзывов</span>
+          </div>
+          <div class="hero__live">
+            <span class="pulse-dot"></span>
+            <span id="liveCounter">128</span> человек сейчас в магазинах
+          </div>
+        </div>
         <div class="hero__actions animate-in">
-          <a href="#stores" class="btn btn--primary">
-            <span>Найти ближайший магазин</span>
+          <a href="#stores" class="btn btn--primary btn--lg">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Найти ближайший магазин
           </a>
+          <span class="hero__or">или</span>
+          <a href="#promos" class="btn btn--outline">Смотреть акции</a>
         </div>
         <div class="hero__stats animate-in">
           <div class="hero__stat">
@@ -64,13 +115,13 @@
           </div>
           <div class="hero__stat-divider"></div>
           <div class="hero__stat">
-            <div class="hero__stat-value">24/7</div>
-            <div class="hero__stat-label">без выходных и перерывов</div>
+            <div class="hero__stat-value counter" data-target="50">0</div>
+            <div class="hero__stat-label">тыс. довольных покупателей</div>
           </div>
           <div class="hero__stat-divider"></div>
           <div class="hero__stat">
             <div class="hero__stat-value counter" data-target="5">0</div>
-            <div class="hero__stat-label">минут пешком до магазина</div>
+            <div class="hero__stat-label">лет на рынке</div>
           </div>
         </div>
       </div>
@@ -82,7 +133,7 @@
             </div>
             <div class="hero__store-tag">
               <span class="pulse-dot pulse-dot--sm"></span>
-              Открыто
+              Открыто сейчас
             </div>
           </div>
           <div class="hero__store-info">
@@ -100,6 +151,15 @@
             <span>контроль качества 24/7</span>
           </div>
         </div>
+        <div class="hero__delivery-card">
+          <div class="hero__delivery-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="hero__delivery-text">
+            <strong>Дешевле доставки на <span class="text-green">30-50%</span></strong>
+            <span>без наценок и сервисных сборов</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="hero__scroll">
@@ -108,48 +168,253 @@
     </div>
   </section>
 
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-bar__grid">
+        <div class="trust-bar__item">
+          <span class="trust-bar__num counter" data-target="2500">0</span>
+          <span class="trust-bar__label">отзывов на картах</span>
+        </div>
+        <div class="trust-bar__item">
+          <div class="trust-bar__stars-inline">★★★★★</div>
+          <span class="trust-bar__label">средний рейтинг</span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__num counter" data-target="120">0</span>
+          <span class="trust-bar__label">позиций в ассортименте</span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__num counter" data-target="98">0</span>
+          <span class="trust-bar__label">% довольных качеством</span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__num counter" data-target="3">0</span>
+          <span class="trust-bar__label">минуты средний чек</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="features" id="about">
     <div class="container">
-      <div class="section-label">ПОЧЕМУ МЫ</div>
-      <h2 class="section-title">Магазин, которому <span class="text-gradient">доверяют</span></h2>
+      <div class="section-label">ПОЧЕМУ НАС ВЫБИРАЮТ</div>
+      <h2 class="section-title">Магазин, который <span class="text-gradient">реально выручает</span></h2>
+      <p class="section-desc">Никакой воды. Только факты, почему 50 000+ москвичей выбирают нас каждый день.</p>
       <div class="features__grid">
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-card__icon feature-card__icon--green">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3>Открыты 24/7</h3>
-          <p>Работаем круглосуточно, без выходных и праздников. Вы всегда можете к нам зайти.</p>
+          <h3>Открыты всегда</h3>
+          <p>24/7/365. Даже в Новый год в 4 утра. Никаких «перерыв на обед» или «санитарный день».</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-card__icon feature-card__icon--blue">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <h3>Рядом с домом</h3>
-          <p>В среднем 5 минут пешком до ближайшего магазина. Удобно и быстро.</p>
+          <h3>5 минут пешком</h3>
+          <p>В среднем 350 метров от вашего подъезда. Ближе, чем любой супермаркет. Без очередей.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-card__icon feature-card__icon--orange">
+        <div class="feature-card reveal">
+          <div class="feature-card__icon feature-card__icon--green">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           </div>
-          <h3>Свежие продукты</h3>
-          <p>Строгий контроль качества. Свежая выпечка, молочка, овощи и фрукты каждый день.</p>
+          <h3>Свежесть каждый день</h3>
+          <p>Поставки 2 раза в сутки. Выпечка — с пылу с жару. Овощи и фрукты — без консервантов.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-card__icon feature-card__icon--purple">
+        <div class="feature-card reveal">
+          <div class="feature-card__icon feature-card__icon--orange">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
-          <h3>Честные цены</h3>
-          <p>Никаких накруток. Держим цены на уровне — дешевле, чем в доставке.</p>
+          <h3>Экономия 30-50%</h3>
+          <p>По сравнению с доставкой. Никаких сервисных сборов, наценок и платы за «срочность».</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-label">ЧТО У НАС ЕСТЬ</div>
+      <h2 class="section-title">Всё, что нужно — <span class="text-gradient">уже здесь</span></h2>
+      <p class="section-desc">От утреннего кофе до ночного перекуса. 120+ позиций в каждом магазине.</p>
+      <div class="products__grid">
+        <div class="product-card reveal">
+          <div class="product-card__icon">🥐</div>
+          <h3>Свежая выпечка</h3>
+          <p>Круассаны, булочки, пирожки, слойки — дважды в день из пекарни</p>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card__icon">🥛</div>
+          <h3>Молочная продукция</h3>
+          <p>Молоко, кефир, йогурты, сыры — всегда свежие, контроль сроков каждый день</p>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card__icon">🥤</div>
+          <h3>Напитки</h3>
+          <p>Холодные и горячие. Кофе с собой, газировка, соки, энергетики, вода</p>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card__icon">🍎</div>
+          <h3>Овощи и фрукты</h3>
+          <p>Сезонные фрукты, свежие овощи, зелень. Без химии и воска</p>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card__icon">🍞</div>
+          <h3>Хлеб и бакалея</h3>
+          <p>Хлеб, крупы, макароны, консервы, соусы, приправы, масло</p>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card__icon">🍫</div>
+          <h3>Снэки и сладости</h3>
+          <p>Шоколад, чипсы, орешки, мороженое, печенье, конфеты</p>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card__icon">🏠</div>
+          <h3>Товары для дома</h3>
+          <p>Бытовая химия, салфетки, батарейки, лампочки, посуда</p>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-card__icon">🍷</div>
+          <h3>Алкоголь</h3>
+          <p>Пиво, вино, крепкие напитки. Продажа с 18 лет по закону</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promos" id="promos">
+    <div class="container">
+      <div class="section-label section-label--accent">АКЦИИ И СКИДКИ</div>
+      <h2 class="section-title">Выгодные предложения <span class="text-gradient">каждый день</span></h2>
+      <p class="section-desc">Честные скидки без уловок. Никаких «старая цена завышена».</p>
+      <div class="promos__grid">
+        <div class="promo-card promo-card--featured reveal">
+          <div class="promo-card__tag promo-card__tag--hot">ХИТ</div>
+          <div class="promo-card__discount">-15%</div>
+          <h3>Скидка на первый заказ</h3>
+          <p>Покажите эту страницу на кассе и получите скидку 15% на весь чек</p>
+          <span class="promo-card__cta">Действует во всех магазинах</span>
+        </div>
+        <div class="promo-card reveal">
+          <div class="promo-card__tag promo-card__tag--new">NEW</div>
+          <div class="promo-card__discount">2+1</div>
+          <h3>Кофе с собой</h3>
+          <p>Каждый третий кофе — бесплатно по карте лояльности</p>
+          <span class="promo-card__cta">При предъявлении карты</span>
+        </div>
+        <div class="promo-card reveal">
+          <div class="promo-card__tag promo-card__tag--time">24h</div>
+          <div class="promo-card__discount">-20%</div>
+          <h3>Ночная скидка</h3>
+          <p>С 00:00 до 06:00 скидка 20% на всю выпечку и готовую еду</p>
+          <span class="promo-card__cta">Каждую ночь во всех магазинах</span>
+        </div>
+        <div class="promo-card reveal">
+          <div class="promo-card__tag promo-card__tag--partner">Партнёр</div>
+          <div class="promo-card__discount">-10%</div>
+          <h3>Студентам и пенсионерам</h3>
+          <p>Постоянная скидка 10% при предъявлении студенческого или пенсионного</p>
+          <span class="promo-card__cta">Каждый день, без выходных</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="loyalty" id="loyalty">
+    <div class="container">
+      <div class="loyalty__card reveal">
+        <div class="loyalty__icon">💳</div>
+        <div class="loyalty__content">
+          <div class="section-label">ПРОГРАММА ЛОЯЛЬНОСТИ</div>
+          <h2 class="section-title">Карта «Сеть 24» — <span class="text-gradient">кэшбек 5%</span></h2>
+          <p>Получайте 5% бонусами с каждой покупки. Оплачивайте бонусами до 50% чека. Бесплатный кофе каждый 3-й.</p>
+          <div class="loyalty__features">
+            <div class="loyalty__feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>5% кэшбек с каждого чека</span>
+            </div>
+            <div class="loyalty__feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Каждый 3-й кофе бесплатно</span>
+            </div>
+            <div class="loyalty__feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Персональные скидки и акции</span>
+            </div>
+            <div class="loyalty__feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Бесплатная карта в любом магазине</span>
+            </div>
+          </div>
+          <button class="btn btn--primary" id="loyaltyBtn">Получить карту</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calculator" id="calculator">
+    <div class="container">
+      <div class="section-label">ПОСЧИТАЙТЕ САМИ</div>
+      <h2 class="section-title">Сколько вы <span class="text-gradient">экономите</span> с нами?</h2>
+      <p class="section-desc">Сравните стоимость покупок у нас и в сервисах доставки.</p>
+      <div class="calculator__card reveal">
+        <div class="calculator__input">
+          <label>Средний чек за месяц</label>
+          <div class="calculator__field">
+            <input type="range" id="calcRange" min="3000" max="50000" value="15000" step="500">
+            <div class="calculator__value"><span id="calcValue">15 000</span> ₽</div>
+          </div>
+          <div class="calculator__range-labels">
+            <span>3 000 ₽</span><span>50 000 ₽</span>
+          </div>
+        </div>
+        <div class="calculator__results">
+          <div class="calculator__result">
+            <span class="calculator__result-label">В доставке вы заплатите</span>
+            <span class="calculator__result-val calculator__result-val--bad" id="calcDelivery">22 500 ₽</span>
+            <span class="calculator__result-note">+50% наценка и сервисный сбор</span>
+          </div>
+          <div class="calculator__arrow">→</div>
+          <div class="calculator__result">
+            <span class="calculator__result-label">В «Сеть 24» вы заплатите</span>
+            <span class="calculator__result-val calculator__result-val--good" id="calcStore">15 000 ₽</span>
+            <span class="calculator__result-note">честная цена без накруток</span>
+          </div>
+          <div class="calculator__savings">
+            Ваша экономия: <strong id="calcSavings">7 500 ₽</strong> в месяц
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-label">ЧТО ГОВОРЯТ ПОКУПАТЕЛИ</div>
+      <h2 class="section-title">Нам <span class="text-gradient">доверяют</span></h2>
+      <div class="reviews__summary">
+        <div class="reviews__score">
+          <span class="reviews__score-num">4.9</span>
+          <div class="reviews__score-stars">★★★★★</div>
+          <span class="reviews__score-count">на основе 2 534 отзывов</span>
+        </div>
+        <div class="reviews__platforms">
+          <span>на</span>
+          <span class="reviews__platform">Яндекс Карты</span>
+          <span class="reviews__platform">Google Maps</span>
+          <span class="reviews__platform">2ГИС</span>
+        </div>
+      </div>
+      <div class="reviews__grid" id="reviewsGrid"></div>
     </div>
   </section>
 
   <section class="stores" id="stores">
     <div class="container">
       <div class="section-label">ГЕОГРАФИЯ СЕТИ</div>
-      <h2 class="section-title">Магазины «Сеть 24» <span class="text-gradient">на карте</span></h2>
-      <p class="section-desc">Выберите удобный навигатор или найдите ближайший адрес в списке ниже</p>
+      <h2 class="section-title">19 магазинов <span class="text-gradient">на карте Москвы</span></h2>
+      <p class="section-desc">Выберите удобный навигатор или найдите ближайший адрес в списке</p>
 
       <div class="stores__navigators">
         <a href="https://yandex.ru/maps/?text=%D0%A1%D0%B5%D1%82%D1%8C%2024" target="_blank" class="nav-btn nav-btn--yandex" rel="noopener">
@@ -181,17 +446,86 @@
           <input type="text" id="storeSearch" placeholder="Поиск по адресу или метро...">
         </div>
         <div class="stores__count">
-          Найдено <strong id="storeCount">19</strong> из 19 магазинов
+          Найдено <strong id="storeCount">19</strong> из 19
         </div>
       </div>
 
-      <div class="stores__grid" id="storeGrid">
-      </div>
-
+      <div class="stores__grid" id="storeGrid"></div>
       <div class="stores__empty" id="storeEmpty">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <p>Ничего не найдено</p>
         <span>Попробуйте изменить поисковый запрос</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-label">ЧАСТЫЕ ВОПРОСЫ</div>
+      <h2 class="section-title">Всё, что вы хотели <span class="text-gradient">спросить</span></h2>
+      <div class="faq__list">
+        <div class="faq__item reveal">
+          <button class="faq__question" aria-expanded="false">
+            <span>Вы правда работаете 24/7? Даже в праздники?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq__answer"><p>Да, мы работаем круглосуточно 365 дней в году. Без санитарных дней, без перерывов на обед. Даже 1 января в 4 утра.</p></div>
+        </div>
+        <div class="faq__item reveal">
+          <button class="faq__question" aria-expanded="false">
+            <span>Есть ли у вас доставка?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq__answer"><p>Пока нет — и это наше преимущество. Отсутствие доставки позволяет держать цены на 30-50% ниже сервисов. Но мы работаем над этим!</p></div>
+        </div>
+        <div class="faq__item reveal">
+          <button class="faq__question" aria-expanded="false">
+            <span>Принимаете ли вы карты?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq__answer"><p>Да, принимаем все банковские карты (Visa, MasterCard, МИР), Apple Pay, Google Pay, Samsung Pay, а также наличные.</p></div>
+        </div>
+        <div class="faq__item reveal">
+          <button class="faq__question" aria-expanded="false">
+            <span>Как получить карту лояльности?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq__answer"><p>Просто попросите на кассе в любом магазине. Карта бесплатная, оформляется за 30 секунд. Кэшбек 5% начинает действовать сразу.</p></div>
+        </div>
+        <div class="faq__item reveal">
+          <button class="faq__question" aria-expanded="false">
+            <span>Можно ли заказать открытие магазина в моём районе?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq__answer"><p>Да! Заполните форму ниже, и мы рассмотрим ваш район при расширении сети. Чем больше заявок из района — тем выше приоритет.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="request" id="request">
+    <div class="container">
+      <div class="request__card reveal">
+        <div class="request__content">
+          <div class="section-label">ХОТИТЕ МАГАЗИН РЯДОМ?</div>
+          <h2 class="section-title">Оставьте заявку на <span class="text-gradient">открытие в вашем районе</span></h2>
+          <p>Мы активно расширяемся. Оставьте адрес — и мы учтём ваш район при планировании новых точек.</p>
+          <form class="request__form" id="requestForm">
+            <div class="request__fields">
+              <input type="text" placeholder="Ваше имя" required class="request__input">
+              <input type="tel" placeholder="Телефон" required class="request__input">
+              <input type="text" placeholder="Улица / район / метро" required class="request__input">
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg">Отправить заявку</button>
+          </form>
+          <span class="request__note">Никакого спама. Только уведомление, если магазин откроется рядом.</span>
+        </div>
+        <div class="request__illustration">
+          <div class="request__map-pin">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p>Ваш район — следующий!</p>
+        </div>
       </div>
     </div>
   </section>
@@ -203,13 +537,19 @@
     <div class="container">
       <div class="cta__card">
         <div class="cta__content">
-          <div class="section-label section-label--light">ПРИСОЕДИНЯЙТЕСЬ</div>
-          <h2 class="section-title section-title--light">Ждем вас в «Сеть 24»<br>в любое время!</h2>
-          <p>Всегда рядом, когда нужно купить самое необходимое. Работаем без перерывов, обедов и выходных.</p>
-          <a href="#stores" class="btn btn--primary btn--lg">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Найти магазин рядом
-          </a>
+          <div class="section-label section-label--light">НЕ ОТКЛАДЫВАЙТЕ</div>
+          <h2 class="section-title section-title--light">Прямо сейчас в «Сеть 24»<br>вас ждут свежие продукты</h2>
+          <p>Не ждите курьера 40 минут. Не переплачивайте за доставку. Выйдите из дома — магазин в 5 минутах.</p>
+          <div class="cta__buttons">
+            <a href="#stores" class="btn btn--primary btn--lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Найти магазин рядом
+            </a>
+            <a href="tel:88000000000" class="btn btn--outline-white btn--lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Позвонить
+            </a>
+          </div>
         </div>
         <div class="cta__stats">
           <div class="cta__stat">
@@ -231,28 +571,63 @@
 
   <footer class="footer" id="contacts">
     <div class="container">
-      <div class="footer__top">
+      <div class="footer__grid">
         <div class="footer__brand">
           <a href="#" class="nav__logo">
             <span class="nav__logo-icon">24</span>
             <span class="nav__logo-text">Сеть<span class="nav__logo-accent">24</span></span>
           </a>
-          <p>Круглосуточные магазины у дома</p>
+          <p>Круглосуточные магазины у дома. Всегда рядом, всегда открыты.</p>
+          <div class="footer__apps">
+            <span>Скоро в приложениях:</span>
+            <div class="footer__app-badges">
+              <span class="footer__app-badge">App Store</span>
+              <span class="footer__app-badge">Google Play</span>
+            </div>
+          </div>
         </div>
-        <div class="footer__contacts">
+        <div class="footer__col">
+          <h4>Магазины</h4>
+          <a href="#stores">Адреса на карте</a>
+          <a href="#stores">Ближайший ко мне</a>
+          <a href="#request">Предложить район</a>
+        </div>
+        <div class="footer__col">
+          <h4>Покупателям</h4>
+          <a href="#promos">Акции и скидки</a>
+          <a href="#loyalty">Карта лояльности</a>
+          <a href="#products">Ассортимент</a>
+          <a href="#faq">Частые вопросы</a>
+        </div>
+        <div class="footer__col">
+          <h4>Контакты</h4>
           <a href="tel:88000000000" class="footer__contact-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             8 (800) 000-00-00
           </a>
           <a href="mailto:info@set24.ru" class="footer__contact-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             info@set24.ru
           </a>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Telegram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.41-1.41-.86.03-.24.35-.48.96-.73 3.78-1.64 6.3-2.73 7.56-3.25 3.6-1.5 4.35-1.76 4.84-1.77.11 0 .35.03.5.15.13.1.16.24.18.34.01.1.03.33.02.47z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="VK">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.68 3.96H8.32C5.46 3.96 3.96 5.46 3.96 8.32v7.36c0 2.86 1.5 4.36 4.36 4.36h7.36c2.86 0 4.36-1.5 4.36-4.36V8.32c0-2.86-1.5-4.36-4.36-4.36zm2.65 9.92c-.24.4-.62.78-1.08 1.04-.66.38-1.38.45-1.92.53-.9.13-1.79-.07-2.69-.14-.96-.07-1.62-.04-2.48.37-1.06.5-1.86 1.36-2.36 2.36-.08.16-.15.41-.09.39.06-.02.11-.06.15-.09.87-.46 1.62-.98 2.55-1.25.64-.19 1.27-.28 1.92-.35.82-.09 1.64-.13 2.46.04.74.15 1.4.5 1.96.97.43.37.76.83.99 1.33.08.18.16.36.23.54.03.08.12.22.12.07-.04-1.07.07-2.12.2-3.16.08-.6.42-1.12.9-1.51.76-.62 1.32-1.38 1.55-2.29.11-.44.15-.89.1-1.33-.06-.5-.2-.74-.73-.66-.9.14-1.61.62-2.23 1.2-.41.38-.73.83-.99 1.32-.07.14-.15.28-.26.39-.08.08-.2.2-.27.15-.03-.02-.03-.1-.03-.14.04-.96.18-1.89.46-2.78.17-.53.54-.92 1.02-1.17.72-.38 1.48-.38 2.25-.43.06 0 .13-.01.2-.02-.01.11-.01.18 0 .24.12.67.19 1.34.15 2.02z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer__bottom">
         <span>© 2026 «Сеть 24». Все права защищены.</span>
-        <a href="#">Политика конфиденциальности</a>
+        <div class="footer__bottom-links">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Пользовательское соглашение</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -261,19 +636,46 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
+  <div class="mobile-sticky" id="mobileSticky">
+    <a href="#stores" class="btn btn--primary btn--full">Найти магазин</a>
+  </div>
+
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu__inner">
       <button class="mobile-menu__close" id="mobileClose" aria-label="Закрыть">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <nav class="mobile-menu__nav">
+        <a href="#products" class="mobile-menu__link">Товары</a>
+        <a href="#promos" class="mobile-menu__link">Акции</a>
         <a href="#stores" class="mobile-menu__link">Магазины</a>
-        <a href="#about" class="mobile-menu__link">О сети</a>
-        <a href="#contacts" class="mobile-menu__link">Контакты</a>
+        <a href="#reviews" class="mobile-menu__link">Отзывы</a>
+        <a href="#loyalty" class="mobile-menu__link">Карта лояльности</a>
+        <a href="#faq" class="mobile-menu__link">FAQ</a>
+        <a href="#request" class="mobile-menu__link">Предложить район</a>
       </nav>
       <a href="tel:88000000000" class="btn btn--primary btn--full">Позвонить</a>
     </div>
   </div>
+
+  <div class="modal" id="loyaltyModal">
+    <div class="modal__inner">
+      <button class="modal__close" id="loyaltyModalClose" aria-label="Закрыть">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal__icon">🎉</div>
+      <h3>Карта лояльности оформлена!</h3>
+      <p>Просто назовите номер телефона на кассе в любом магазине «Сеть 24» — и карта активируется за 30 секунд.</p>
+      <div class="modal__benefits">
+        <div class="modal__benefit">5% кэшбек с каждой покупки</div>
+        <div class="modal__benefit">Каждый 3-й кофе бесплатно</div>
+        <div class="modal__benefit">Персональные акции и скидки</div>
+      </div>
+      <button class="btn btn--primary btn--full modal__action" id="loyaltyModalAction">Понятно, спасибо!</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
 
   <script src="js/main.js"></script>
 </body>

@@ -1,3 +1,4 @@
+// ==================== STORE DATA ====================
 const stores = [
   { id: 1, address: 'ул. Тверская, д. 15', metro: 'Тверская', walk: '3 мин пешком' },
   { id: 2, address: 'ул. Новый Арбат, д. 22', metro: 'Арбатская', walk: '5 мин пешком' },
@@ -20,6 +21,17 @@ const stores = [
   { id: 19, address: 'ул. Шаболовка, д. 25', metro: 'Шаболовская', walk: '3 мин пешком' },
 ];
 
+// ==================== REVIEW DATA ====================
+const reviews = [
+  { name: 'Анна М.', date: '2 дня назад', stars: 5, text: 'Спасают в любое время! Захотелось мороженого в 2 часа ночи — зашла и купила. Магазин чистый, всё свежее. Рекомендую!' },
+  { name: 'Дмитрий К.', date: 'неделю назад', stars: 5, text: 'Живу рядом с магазином на Тверской. Очень удобно, когда срочно нужно что-то купить, а все супермаркеты уже закрыты. Цены адекватные.' },
+  { name: 'Елена В.', date: '2 недели назад', stars: 5, text: 'Выпечка просто бомба! Круассаны утром — свежайшие. Приятно, что есть скидка 20% ночью. Часто забегаю после работы.' },
+  { name: 'Сергей П.', date: '3 недели назад', stars: 4, text: 'Хороший ассортимент для магазина у дома. Есть всё самое нужное. Иногда не хватает некоторых позиций, но в целом — отлично.' },
+  { name: 'Мария Т.', date: 'месяц назад', stars: 5, text: 'Пользуюсь картой лояльности уже полгода. Кэшбек реально работает! И кофе бесплатный каждый 3-й — приятный бонус.' },
+  { name: 'Алексей Р.', date: 'месяц назад', stars: 5, text: 'Дешевле, чем заказывать доставку. Посчитал — в месяц экономлю около 5-7 тысяч. И не надо ждать курьера по 40 минут.' },
+];
+
+// ==================== RENDER STORES ====================
 const storeGrid = document.getElementById('storeGrid');
 const storeCount = document.getElementById('storeCount');
 const storeEmpty = document.getElementById('storeEmpty');
@@ -54,25 +66,41 @@ function renderStores(filterText = '') {
     const q = filterText.toLowerCase();
     return s.address.toLowerCase().includes(q) || s.metro.toLowerCase().includes(q);
   });
-
   storeGrid.innerHTML = filtered.map(createStoreCard).join('');
   storeCount.textContent = filtered.length;
   storeEmpty.classList.toggle('stores__empty--visible', filtered.length === 0);
-
   requestAnimationFrame(() => observeReveal());
 }
 
-storeSearch.addEventListener('input', (e) => renderStores(e.target.value));
+if (storeSearch) storeSearch.addEventListener('input', (e) => renderStores(e.target.value));
 renderStores();
 
+// ==================== RENDER REVIEWS ====================
+const reviewsGrid = document.getElementById('reviewsGrid');
+if (reviewsGrid) {
+  reviewsGrid.innerHTML = reviews.map(r => `
+    <div class="review-card reveal">
+      <div class="review-card__header">
+        <div class="review-card__avatar">${r.name[0]}</div>
+        <div>
+          <div class="review-card__name">${r.name}</div>
+          <div class="review-card__date">${r.date}</div>
+        </div>
+      </div>
+      <div class="review-card__stars">${'★'.repeat(r.stars)}${r.stars < 5 ? '☆'.repeat(5 - r.stars) : ''}</div>
+      <p class="review-card__text">${r.text}</p>
+    </div>
+  `).join('');
+}
+
 // ==================== NAV SCROLL ====================
-const nav = document.querySelector('.nav');
+const nav = document.getElementById('nav');
 const scrollTop = document.getElementById('scrollTop');
 
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY > 50;
   nav.classList.toggle('nav--scrolled', scrolled);
-  scrollTop.classList.toggle('scroll-top--visible', window.scrollY > 500);
+  scrollTop.classList.toggle('scroll-top--visible', window.scrollY > 600);
 });
 
 scrollTop.addEventListener('click', () => {
@@ -82,19 +110,21 @@ scrollTop.addEventListener('click', () => {
 // ==================== COUNTER ANIMATION ====================
 function animateCounters() {
   document.querySelectorAll('.counter').forEach(counter => {
+    if (counter.dataset.animated) return;
+    counter.dataset.animated = 'true';
     const target = +counter.dataset.target;
-    const duration = 1500;
+    const duration = 1800;
     const start = performance.now();
 
     function update(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      counter.textContent = Math.floor(target * eased);
+      const val = Math.floor(target * eased);
+      counter.textContent = val >= 1000 ? Math.floor(val / 100) * 100 + '+' : val + '+';
       if (progress < 1) requestAnimationFrame(update);
-      else counter.textContent = target + '+';
+      else counter.textContent = target >= 1000 ? Math.floor(target / 100) * 100 + '+' : target + '+';
     }
-
     requestAnimationFrame(update);
   });
 }
@@ -110,14 +140,16 @@ function observeReveal() {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (!el.classList.contains('reveal--visible')) observer.observe(el);
+  });
 }
 
 // ==================== MOBILE MENU ====================
 const burger = document.querySelector('.nav__burger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileClose');
-const mobileLinks = document.querySelectorAll('.mobile-menu__link');
+const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu .btn');
 
 function openMenu() { mobileMenu.classList.add('mobile-menu--open'); document.body.style.overflow = 'hidden'; }
 function closeMenu() { mobileMenu.classList.remove('mobile-menu--open'); document.body.style.overflow = ''; }
@@ -127,28 +159,120 @@ mobileClose.addEventListener('click', closeMenu);
 mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMenu(); });
 mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-// ==================== SMOOTH SCROLL FOR ANCHOR LINKS ====================
+// ==================== FAQ ACCORDION ====================
+document.querySelectorAll('.faq__question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq__question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  });
+});
+
+// ==================== CALCULATOR ====================
+const calcRange = document.getElementById('calcRange');
+const calcValue = document.getElementById('calcValue');
+const calcDelivery = document.getElementById('calcDelivery');
+const calcStore = document.getElementById('calcStore');
+const calcSavings = document.getElementById('calcSavings');
+
+function updateCalculator(val) {
+  const amount = +val;
+  const deliveryMarkup = Math.round(amount * 1.5);
+  const savings = deliveryMarkup - amount;
+  calcValue.textContent = amount.toLocaleString('ru-RU');
+  calcDelivery.textContent = deliveryMarkup.toLocaleString('ru-RU') + ' ₽';
+  calcStore.textContent = amount.toLocaleString('ru-RU') + ' ₽';
+  calcSavings.textContent = savings.toLocaleString('ru-RU') + ' ₽';
+}
+
+if (calcRange) {
+  calcRange.addEventListener('input', (e) => updateCalculator(e.target.value));
+  updateCalculator(calcRange.value);
+}
+
+// ==================== LIVE COUNTER ====================
+const liveCounter = document.getElementById('liveCounter');
+if (liveCounter) {
+  setInterval(() => {
+    const base = new Date().getHours() < 6 ? 60 : 120;
+    liveCounter.textContent = Math.floor(base + Math.random() * 40);
+  }, 5000);
+}
+
+// ==================== PROMO TIMER ====================
+const promoTimer = document.getElementById('promoTimer');
+if (promoTimer) {
+  function updatePromoTimer() {
+    const now = new Date();
+    const end = new Date();
+    end.setHours(23, 59, 59, 999);
+    const diff = end - now;
+    if (diff <= 0) {
+      promoTimer.textContent = 'завтра';
+      return;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    promoTimer.textContent = `ещё ${h} ч ${m} мин`;
+  }
+  updatePromoTimer();
+  setInterval(updatePromoTimer, 60000);
+}
+
+// ==================== LOYALTY MODAL ====================
+const loyaltyBtn = document.getElementById('loyaltyBtn');
+const loyaltyModal = document.getElementById('loyaltyModal');
+const loyaltyModalClose = document.getElementById('loyaltyModalClose');
+const loyaltyModalAction = document.getElementById('loyaltyModalAction');
+
+if (loyaltyBtn && loyaltyModal) {
+  loyaltyBtn.addEventListener('click', () => loyaltyModal.classList.add('modal--open'));
+  loyaltyModalClose.addEventListener('click', () => loyaltyModal.classList.remove('modal--open'));
+  loyaltyModalAction.addEventListener('click', () => loyaltyModal.classList.remove('modal--open'));
+  loyaltyModal.addEventListener('click', (e) => { if (e.target === loyaltyModal) loyaltyModal.classList.remove('modal--open'); });
+}
+
+// ==================== REQUEST FORM ====================
+const requestForm = document.getElementById('requestForm');
+const toast = document.getElementById('toast');
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add('toast--visible');
+  setTimeout(() => toast.classList.remove('toast--visible'), 3000);
+}
+
+if (requestForm) {
+  requestForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    showToast('Спасибо! Ваша заявка принята. Мы учтём ваш район при расширении.');
+    requestForm.reset();
+  });
+}
+
+// ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navHeight = nav.offsetHeight;
+      const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+      window.scrollTo({ top: targetPos, behavior: 'smooth' });
     }
   });
 });
 
 // ==================== INIT ====================
 document.addEventListener('DOMContentLoaded', () => {
-  animateCounters();
   observeReveal();
+  animateCounters();
 
-  const heroObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      animateCounters();
-    }
-  });
-
-  const statsSection = document.querySelector('.hero__stats');
-  if (statsSection) heroObserver.observe(statsSection);
+  const trustBar = document.querySelector('.trust-bar');
+  if (trustBar) {
+    const trustObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) { animateCounters(); trustObserver.disconnect(); }
+    }, { threshold: 0.3 });
+    trustObserver.observe(trustBar);
+  }
 });
